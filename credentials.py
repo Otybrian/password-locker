@@ -1,6 +1,4 @@
-
-
-    class Credentials:
+class Credentials:
 
         user_credential_list = []
 
