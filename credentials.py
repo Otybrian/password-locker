@@ -30,8 +30,19 @@ class User:
         User.user_list.remove(self)
 
         """
-        A classmethod decorator to declare class methods to 
+        A classmethod decorator to declare class methods to display and 
+        remove user details
         """
-        
-        
-       
+
+    class Credentials:
+
+        user_credential_list = []
+
+        @classmethod
+        def confirm_user(cls, username, user_password):
+
+            saved_user = ""
+            for user in User.user_list:
+                if(user.username == username and user.user_password == user_password):
+                    saved_user == user.username
+            return saved_user
