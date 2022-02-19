@@ -19,3 +19,19 @@ class User:
         """
         The method that will save a new user by adding their details to the user_list
         """
+
+    @classmethod
+    def show_user_details(cls):
+        return cls.user_list
+
+
+    def remove_user_details(self):
+
+        User.user_list.remove(self)
+
+        """
+        A classmethod decorator to declare class methods to 
+        """
+        
+        
+       
