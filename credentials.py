@@ -1,3 +1,5 @@
+from user import User
+
 class Credentials:
 
         user_credential_list = []
@@ -11,4 +13,7 @@ class Credentials:
                     saved_user == user.username
             return saved_user
         """
-        The method confirm_user determines if the user details entered is in the user_list"""
+        The method confirm_user determines if the user details entered is in the user_list
+        """
+
+        
