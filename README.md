@@ -29,4 +29,4 @@ Python3.8
 Git       |
 
 ### License
-This project is under the  [MIT](license) licence
+This project is under the  [MIT](license) license
