@@ -40,9 +40,20 @@ class Credentials:
             """
             Credentials.user_credential_list.remove(self)
 
-        
 
 
+        @classmethod
+        def credentials_available(cls, user_account):
+            """
+            This method checks whether credentials for the user_account details entered exists in the 
+            user_credential_list
+            """
+            for credential in cls.user_credential_list:
+                if credential.user_account == user_account:
+                    return True
+            return False
+
+    
         @classmethod 
         def access_credentials(cls, user_account):
             """
@@ -53,5 +64,5 @@ class Credentials:
             for credential in cls.user_credential_list:
                 if credential.user_account == user_account:
                     return credential
-            
 
+       
