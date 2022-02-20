@@ -67,3 +67,5 @@ class TestCredentials(unittest.TestCase):
 
         Credentials.user_credential_list = []
 
+if __name__ == "__main__":
+    unittest.main()

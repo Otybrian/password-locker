@@ -6,14 +6,14 @@ class User:
     """
     An empty list called user_list will store the user details
     """
-    def _init_(self, username, user_password):
+    def __init__(self, username, user_password):
         self.username = username
         self.user_password = user_password
         """
         This method defines a user's properties
         """
 
-    def _init_(self):
+    def save_user(self):
         User.user_list.append(self)
 
         """

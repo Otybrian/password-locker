@@ -1,5 +1,6 @@
 import random
 import string
+import pyperclip
 from user import User
 
 class Credentials:
@@ -71,6 +72,14 @@ class Credentials:
             This method will return all the credential details of the user from the user_credential_list
             """
             return cls.user_credential_list
+
+        @classmethod
+        def copy_password(cls, user_account):
+            """
+            A method that will help copy password into the clipboard using pyperclip
+            """
+            my_credentials = Credentials.display_user_credentials(user_account)
+            pyperclip.copy(my_credentials.password)
 
 
         def passwordGenerator(stringLength=8):
