@@ -74,8 +74,8 @@ class Credentials:
 
         def passwordGenerator(stringLength=8):
             """
-            This method will create/generate a new random password consisting of a string of digits, letters
-            and special characters
+            This method will create/generate a new random 8-character password consisting of a string of digits,
+            letters and special characters
             """
             password = string.digits + string.ascii_lowercase + string.ascii_uppercase + "!@#$%^&*"
             return " ".join(random.choice(password) for i in range(stringLength))
