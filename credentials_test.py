@@ -23,7 +23,7 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credential.user_name, 'otbrayo')
         self.assertEqual(self.new_credential.password, 'comE@5on')
 
-    def save_credentials_test(self):
+    def test_save_credentials(self):
         """
         This testcase tests whether credential object is successfully saved/ appended 
         into the user_credential_list
@@ -32,7 +32,7 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.save_credentials()
         self.assertEqual(len(Credentials.user_credential_list),1)
 
-    def delete_user_credentials_test(self):
+    def test_delete_user_credentials(self):
         """
         This testcase tests whether credential object is successfully deleted/ removed 
         from the user_credential_list
@@ -40,3 +40,16 @@ class TestCredentials(unittest.TestCase):
 
         self.new_credential.delete_user_credentials()
         self.assertEqual(len(Credentials.user_credential_list),0)
+
+    def test_credentials_available(self):
+        """
+        Test case that confirms if the user credentials entered exists in the user_credentials_list
+        by taking the user_account and displaying the credentials
+        """
+
+        self.new_credential.credentials_available()
+        test_credentials_available = Credentials('twitter')
+        test_credentials_available.credentials_available()
+
+        self.assertEqual(test_credentials_available.user_credential_list)
+
