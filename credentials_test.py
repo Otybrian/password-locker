@@ -32,6 +32,25 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.save_credentials()
         self.assertEqual(len(Credentials.user_credential_list),1)
 
+    def test_access_credentials(self):
+        """
+        Test case that enables user to access credentials entered from the user_credentials_list
+        by taking the user_account and displaying the credentials
+        """
+
+        self.new_credential.access_credentials()
+        user_account = Credentials('twitter')
+        user_account.access_credentials()
+
+        self.assertEqual(user_account.user_credential_list)
+
+    def test_display_user_credentials(self):
+        """
+        Test case tests whether saved user credentials are displayed 
+        """
+
+        self.assertEqual(Credentials.display_user_credentials(), Credentials.user_credential_list)
+
     def test_delete_user_credentials(self):
         """
         This testcase tests whether credential object is successfully deleted/ removed 
@@ -41,15 +60,10 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.delete_user_credentials()
         self.assertEqual(len(Credentials.user_credential_list),0)
 
-    def test_credentials_available(self):
+    def tearDown(self):
         """
-        Test case that confirms if the user credentials entered exists in the user_credentials_list
-        by taking the user_account and displaying the credentials
+        Method cleans up after each test case has run
         """
 
-        self.new_credential.credentials_available()
-        test_credentials_available = Credentials('twitter')
-        test_credentials_available.credentials_available()
-
-        self.assertEqual(test_credentials_available.user_credential_list)
+        Credentials.user_credential_list = []
 
