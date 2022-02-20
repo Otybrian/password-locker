@@ -34,6 +34,24 @@ class Credentials:
             user_credential_list
             """
 
+        def delete_user_credentials(self):
+            """
+            A method that removes user credentials from the user_credential_list
+            """
+            Credentials.user_credential_list.remove(self)
+
+        
+
+
         @classmethod 
+        def access_credentials(cls, user_account):
+            """
+            This method helps user find their credentials by taking in a user's user_account name
+            and returns the credential details that matches the user_account name entered
+            """
+
+            for credential in cls.user_credential_list:
+                if credential.user_account == user_account:
+                    return credential
             
 
