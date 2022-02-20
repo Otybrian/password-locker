@@ -23,4 +23,12 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credential.user_name, 'otbrayo')
         self.assertEqual(self.new_credential.password, 'comE@5on')
 
-    
+    def save_credentials_test(self):
+        """
+        This testcase tests whether credential object is successfully saved/ appended 
+        into the user_credential_list
+        """
+
+        self.new_credential.save_credentials()
+        self.assertEqual(len(Credentials.user_credential_list),1)
+        
