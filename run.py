@@ -36,4 +36,7 @@ def main():
         else:
             print(username + "your account has been created successful")
 
+if __name__=='__main__':
+     main()
+
 
