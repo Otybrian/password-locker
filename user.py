@@ -23,13 +23,3 @@ class User:
     @classmethod
     def show_user_details(cls):
         return cls.user_list
-
-
-    def remove_user_details(self):
-
-        User.user_list.remove(self)
-
-        """
-        A classmethod decorator to declare class methods to display and 
-        remove user details
-        """

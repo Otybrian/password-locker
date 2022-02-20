@@ -30,12 +30,6 @@ def test_show_user_details(self):
     self.new_user.show_user_details()
     self.assertEqual(len(User.user_list),1)
 
-def test_remove_user_details(self):
-    """
-    This testcase tests if a new user instance has been deleted from the user_list
-    """
-    self.new_user.remove_user_details()
-    self.assertEqual(len(User.user_list),0)
 
 def tearDown(self):
     """
