@@ -65,4 +65,17 @@ class Credentials:
                 if credential.user_account == user_account:
                     return credential
 
-       
+        @classmethod
+        def display_user_credentials(cls):
+            """
+            This method will return all the credential details of the user from the user_credential_list
+            """
+            return cls.user_credential_list
+
+        def passwordGenerator(stringLength=8):
+            """
+            This method will create/generate a new random password consisting of a string of digits, letters
+            and special characters
+            """
+            password = string.digits + string.ascii_lowercase + string.ascii_uppercase + "!@#$%^&*"
+            return " ".join(random.choice(password) for i in range(stringLength))
