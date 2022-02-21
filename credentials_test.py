@@ -14,6 +14,13 @@ class TestCredentials(unittest.TestCase):
 
         self.new_credential = Credentials('twitter', 'otbrayo', 'comE@5on')
 
+    def tearDown(self):
+        """
+        Method cleans up after each test case has run
+        """
+
+        Credentials.user_credential_list = []
+
     def test_init(self):
         """
         A test case that checks whether a new instance of Credentials has been 
@@ -59,13 +66,6 @@ class TestCredentials(unittest.TestCase):
 
         self.new_credential.delete_user_credentials()
         self.assertEqual(len(Credentials.user_credential_list),0)
-
-    def tearDown(self):
-        """
-        Method cleans up after each test case has run
-        """
-
-        Credentials.user_credential_list = []
 
 if __name__ == "__main__":
     unittest.main()

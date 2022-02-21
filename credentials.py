@@ -1,23 +1,14 @@
-import random
+from random import choice
 import string
 import pyperclip
-from user import User
+
 
 class Credentials:
+        """
+        This class generates instances of a user's credentials
+         """
 
         user_credential_list = []
-
-        @classmethod
-        def confirm_user(cls, username, user_password):
-
-            saved_user = ""
-            for user in User.user_list:
-                if(user.username == username and user.user_password == user_password):
-                    saved_user == user.username
-            return saved_user
-        """
-        The method confirm_user determines if the user details entered is in the user_list
-        """
 
         def __init__(self, user_account, user_name, password):
             """
@@ -56,18 +47,22 @@ class Credentials:
 
     
         @classmethod 
-        def access_credentials(cls, user_account):
+        def access_credentials(cls, password):
             """
             This method helps user find their credentials by taking in a user's user_account name
             and returns the credential details that matches the user_account name entered
             """
 
+            user_credential_list = []
+
             for credential in cls.user_credential_list:
-                if credential.user_account == user_account:
-                    return credential
+                if credential.password == password:
+                    user_credential_list.append(credential)
+                
+            return user_credential_list
 
         @classmethod
-        def display_user_credentials(cls):
+        def display_user_credentials(cls,):
             """
             This method will return all the credential details of the user from the user_credential_list
             """
@@ -82,13 +77,23 @@ class Credentials:
             pyperclip.copy(my_credentials.password)
 
 
-        def passwordGenerator(stringLength=8):
+
+        @classmethod
+        def passwordGenerator(cls):
             """
             This method will create/generate a new random 8-character password consisting of a string of digits,
             letters and special characters
             """
-            password = string.digits + string.ascii_lowercase + string.ascii_uppercase + "!@#$%^&*"
-            return " ".join(random.choice(password) for i in range(stringLength))
+
+            size = 8
+
+            alphanum = string.ascii_lowercase + string.ascii_uppercase + string.digits
+
+            generated_password = ''.join(choice(alphanum) for num in range(size))
+
+            return generated_password
+
+            
 
         def enter_user_password():
             """

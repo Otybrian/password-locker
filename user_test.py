@@ -1,5 +1,6 @@
 import unittest
 from user import User
+from credentials import Credentials
 
 class TestUser(unittest.TestCase):
     """
@@ -14,13 +15,20 @@ class TestUser(unittest.TestCase):
 
         self.new_user = User('Brian', 'odhis')
 
+    def tearDown(self):
+        """
+        Testcase cleans up after each testcase has run
+        """
+        User.user_list = []
+
     def test_init(self):
         """
         This tests if the object is correctly initialized
         """
 
         self.assertEqual(self.new_user.username, 'Brian')
-        self.assertEqual(self.new_user.user_password, 'odhis')
+        self.assertEqual(self.new_user.user_password, 'odHis3@1')
+
 
     def test_save_user(self):
         """
@@ -38,12 +46,21 @@ class TestUser(unittest.TestCase):
         self.new_user.show_user_details()
         self.assertEqual(len(User.user_list),1)
 
+    def test_sign_in(self):
+        """
+        Method tests if a user is able to sign into their account
+        """
 
-    def tearDown(self):
-        """
-        Testcase cleans up after each testcase has run
-        """
-        User.user_list = []
+        self.new_user.save_user()
+        test_user = User("Brian","odHis3@1")
+        test_user.save_user()
+
+        found_credentials = User.sign_in("Brian","odHis3@1")
+
+        self.assertEqual(found_credentials, Credentials.user_credential_list)
+
+
+  
 
 if __name__ == "__main__":
     unittest.main()
